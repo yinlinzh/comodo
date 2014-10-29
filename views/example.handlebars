@@ -1,0 +1,8 @@
+<ul>
+    {{#each tours}}
+    {{! I'm in a new block... and the context has changed }}
+        <li>
+            {{name}} - {{price}}
+        </li>
+    {{/each}}
+</ul>

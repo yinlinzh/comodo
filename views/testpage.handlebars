@@ -1,0 +1,130 @@
+<h3 class="sub-header">用户评论</h3>
+<textarea id="reviewContent" class="form-control" rows="4" disabled>{{ review_content }}</textarea>
+<hr/>
+<h3 class="sub-header">程序输出</h3>
+<div class="row">
+    {% for attr in attrs %}
+    <div class="container col-md-2">
+        <div id="radioSelector" class="panel panel-primary">
+            <div class="panel-heading">{{ attr }}</div>
+            <fieldset class="panel-body" disabled>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="{{ attr + "optionsRadios" }}" id="{{ attr + "optionsRadios1" }}" value="option1"
+                    {% if attrs[attr].endswith('-p') %}checked{% endif %}>
+                    {{ "正面" +  ((": " + attrs[attr][:-2]) if attrs[attr].endswith('-p') else "") }}
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="{{ attr + "optionsRadios" }}" id="{{ attr + "optionsRadios2" }}" value="option2"
+                    {% if attrs[attr].endswith('-n') %}checked{% endif %}>
+                    {{ "负面" +  ((": " + attrs[attr][:-2]) if attrs[attr].endswith('-n') else "") }}
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="{{ attr + "optionsRadios" }}" id="{{ attr + "optionsRadios3" }}" value="option3">
+                    未包含
+                  </label>
+                </div>
+            </fieldset>
+            <div class="panel-footer">
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <button type="button" class="btn btn-danger modifyResult" id="modify_review_btn">修改</button>
+
+              <!-- Indicates a successful or positive action -->
+              <button type="button" class="btn btn-success confirmModification" id="confirm_review_btn" disabled="disabled">确认</button> 
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="container col-md-2">
+      <span class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown">
+          添加缺失属性
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+        </ul>
+      </span>
+      <button type="button" class="btn btn-success addMissingAttr">添加</button> 
+    </div>
+</div>
+<hr/>
+<h3 class="sub-header">字典添加</h3>
+<!-- <div class="container-fluid"> -->
+<div class="row">
+    <div class="container col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">形容词</div>
+            <fieldset class="panel-body">
+              <textarea class="form-control" rows="2" placeholder="请使用;分隔不同的词">{{ adjective_words }}</textarea>
+              <!-- <input class="input-xlarge focused" id="focusedInput" type="text" value="This is focused…"> -->
+            </fieldset>
+            <div class="panel-footer">
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <!-- <button type="button" class="btn btn-danger" id="modify_review_btn" onclick="modify_review()">添加</button> -->
+
+              <!-- Indicates a successful or positive action -->
+              <!-- <button type="button" class="btn btn-success" id="confirm_review_btn" onclick="confirm_review()" disabled="disabled">确认</button>  -->
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">否定词</div>
+            <fieldset class="panel-body">
+              <textarea class="form-control" rows="2" placeholder="请使用;分隔不同的词">{{ negative_words }}</textarea>
+            </fieldset>
+            <div class="panel-footer">
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <!-- <button type="button" class="btn btn-danger" id="modify_review_btn" onclick="modify_review()">添加</button> -->
+
+              <!-- Indicates a successful or positive action -->
+              <!-- <button type="button" class="btn btn-success" id="confirm_review_btn" onclick="confirm_review()" disabled="disabled">确认</button>  -->
+            </div>
+        </div>
+    </div>
+    <div class="container col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">副词</div>
+            <fieldset class="panel-body">
+              <textarea class="form-control" rows="2" placeholder="请使用;分隔不同的词">{{ adverb_words }}</textarea>
+            </fieldset>
+            <div class="panel-footer">
+              <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+              <!-- <button type="button" class="btn btn-danger" id="modify_review_btn" onclick="modify_review()">添加</button> -->
+
+              <!-- Indicates a successful or positive action -->
+              <!-- <button type="button" class="btn btn-success" id="confirm_review_btn" onclick="confirm_review()" disabled="disabled">确认</button>  -->
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+
+<!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+
+<!-- Indicates a successful or positive action -->
+<button id="submitBtn" type="button" class="btn btn-success">提交</button>
+
+<!-- Contextual button for informational alert messages -->
+<!-- <button type="button" class="btn btn-info">Info</button> -->
+
+<!-- Indicates caution should be taken with this action -->
+<button id="skipBtn" type="button" class="btn btn-warning">跳过</button>
+
+<!-- Indicates a dangerous or potentially negative action -->
+<!-- <button type="button" class="btn btn-danger">Danger</button> -->
+
+<!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+<button type="button" class="btn btn-link">Back to Top</button>
+
+
+<script src="/static/js/testpage.js"></script>
