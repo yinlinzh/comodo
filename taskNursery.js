@@ -12,10 +12,35 @@ util.inherits(Nursery, events.EventEmitter);
 
 // task conf
 
+function buildConcurrencyRules() {
+    // premiumLeague: 10,
+    // lfp: 20,
+    // serieA: 5
+}
+
+var checkConcurrencyRules = (function(target) {
+    var rules = {
+        premiumLeague: 10,
+        lfp: 20,
+        serieA: 5
+    };
+    // var rules = buildConcurrencyRules(target);
+    return function(target) {
+        if (!target in rules) console.log('!target in rules');
+        rules[target] -= 1;
+        console.log('rules: ' + target + ' : ' + rules[target]);
+    };
+
+}());
+
+checkConcurrencyRules('lfp');
+checkConcurrencyRules('lfp');
+checkConcurrencyRules('lfp');
 
 
 Nursery.prototype.addTask = function(task, next) {
-    var self = this;
+    var self = this,
+        taskPermitted = checkConcurrencyRules(target)();
 
 
 
@@ -36,6 +61,10 @@ Nursery.prototype.addTask = function(task, next) {
     });
     childTask.on('exit', function(status) {
         console.log('status code: ' + status);
+        next(null, status);
+    });
+    childTask.on('error', function(err) {
+        next(err);
     });
 
     // setTimeout(function() {
@@ -51,8 +80,8 @@ Nursery.prototype.addTask = function(task, next) {
 
 Nursery.prototype.resumeTasks = function(next) {};
 
-var n = new Nursery();
-n.addTask();
+// var n = new Nursery();
+// n.addTask();
 
 
 // var childTask = ct.create();
