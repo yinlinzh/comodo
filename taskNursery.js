@@ -18,7 +18,7 @@ function buildConcurrencyRules() {
     // serieA: 5
 }
 
-var checkConcurrencyRules = (function(target) {
+var checkConcurrencyRules = (function() {
     var rules = {
         premiumLeague: 10,
         lfp: 20,

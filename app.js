@@ -1,25 +1,31 @@
-var express = require('express');
-var app = express();
-var handlebars = require('express3-handlebars').create();
-app.engine('handlebars', handlebars.engine);
-app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + '/public'));
+// var redis = require('redis'),
+//     client = redis.createClient();
+//     client.select(1);
+var async = require('async');
+var cp = require('child_process');
 
-// logging system
-
-
-
-app.get('/', function(req, res) {
-    res.render('example',
-        {layout: 'dashboard',
-         tours: [
-            {name: 'Hood River', price: '$99.95'},
-            {name: 'Oregon Coast', price: '$159.95'}
-         ]
-        }
-    );
-});
-
-app.listen(process.env.PORT || 6543, function() {
-    // console.log('nodejs + express server is starting...');
-});
+async.forever(
+    function(next) {
+        // client.spop('bbs', function(err, item) {
+        //     if (item) {
+        //         console.log('--------->' + item);
+        //         child_process.exec(callback)
+        //     }
+        //     // while(1);
+        // });
+        console.log('-------->');
+        var childProcess = cp.spawn('node', ['run.js'], function(){
+            console.log('done');
+        });
+        childProcess.stdout.on('data',function(data) {
+            console.log('cps data: ' + data);
+        });
+        childProcess.on('exit', function(status) {
+            console.log('exit with code: ' + status);
+        });
+        setImmediate(next);
+        // process.nextTick(next);
+    }, function(err) {
+        console.log('two');
+    }
+);
