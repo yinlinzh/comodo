@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-app="dashboardApp">
     <div class="row">
         <div class="col-md-8">
             <table class="table table-striped">
@@ -11,20 +11,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{{ name }}</td>
-                        <td>{{ score }}</td>
-                        <td>{{ goals }}</td>
+                        <td>\{{name}}</td>
+                        <td>\{{score}}</td>
+                        <td>\{{goals}}</td>
                     </tr>
-                    <!-- <tr>
-                        <td>西甲</td>
-                        <td>10</td>
-                        <td>321</td>
-                    </tr>
-                    <tr>
-                        <td>意甲</td>
-                        <td>6</td>
-                        <td>213</td>
-                    </tr> -->
                 </tbody>
             </table>
             <form role="form">
@@ -50,8 +40,9 @@
             </form>
         </div>
 
-        <div class="col-md-4" ng-controller="HelloController">
-            {{{ content }}} {{greeting.text}}, World
+        <div class="col-md-4" ng-controller="HelloCtrl">
+            <h1>{{{ content }}} \{{ greeting }}, World</h1>
+            <h2>\{{"AngularJS"}}</h2>
         </div>
     </div>
 </div>
