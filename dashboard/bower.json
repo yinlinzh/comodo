@@ -1,0 +1,40 @@
+{
+  "name": "dashboard",
+  "version": "1.0.0",
+  "homepage": "https://github.com/yinlinzh/comodo",
+  "authors": [
+    "Yinlin Zhang <yinlinzh@gmail.com>"
+  ],
+  "description": "Dashboard App for Comodo Crawler",
+  "main": "app.js",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "Crawler",
+    "Dashboard",
+    "Express",
+    "Handlebars"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1",
+    "jquery": "~2.1.1",
+    "d3": "~3.4.13",
+    "angularjs": "~1.3.2",
+    "angular-touch": "~1.3.2",
+    "angular-animate": "~1.3.2",
+    "angular-mocks": "~1.3.2",
+    "angular-route": "~1.3.2",
+    "angular-sanitize": "~1.3.2"
+  }
+}

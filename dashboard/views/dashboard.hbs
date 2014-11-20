@@ -1,30 +1,33 @@
-<div class="container-fluid">
-    <div class="row">
+<div class="container-fluid" ng-app="dashboardApp">
+    <div class="row" ng-controller="leagueStatCtrl">
+        <div class="page-header">
+            <h1>
+                {{todo.user}}'s To Do List
+                <span class="label label-success" ng-hide="checkedCounter() == 0">
+                    \{{checkedCounter()}}
+                </span>
+            </h1>
+        </div>
         <div class="col-md-8">
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>欧洲联赛</th>
-                        <th>欧战积分</th>
-                        <th>总进球数</th>
+                        <th>\{{leagueRankHead.nameHead}}</th>
+                        <th>\{{leagueRankHead.scoreHead}}</th>
+                        <th>\{{leagueRankHead.goalsHead}}</th>
+                        <th><span class="label label-success">Default</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>{{ name }}</td>
-                        <td>{{ score }}</td>
-                        <td>{{ goals }}</td>
+                    <tr ng-repeat="league in leagues">
+                        <td>\{{league.name}}</td>
+                        <td>\{{league.score}}</td>
+                        <td>\{{league.goals}}</td>
+                        <td>\{{league.live}}</td>
+                        <td>
+                            <input type="checkbox" ng-model="league.live" />
+                        </td>
                     </tr>
-                    <!-- <tr>
-                        <td>西甲</td>
-                        <td>10</td>
-                        <td>321</td>
-                    </tr>
-                    <tr>
-                        <td>意甲</td>
-                        <td>6</td>
-                        <td>213</td>
-                    </tr> -->
                 </tbody>
             </table>
             <form role="form">
@@ -50,8 +53,9 @@
             </form>
         </div>
 
-        <div class="col-md-4" ng-controller="HelloController">
-            {{{ content }}} {{greeting.text}}, World
+        <div class="col-md-4">
+            <h1>{{{ content }}} \{{ greeting }}, World</h1>
+            <h2>\{{"AngularJS"}}</h2>
         </div>
     </div>
 </div>
