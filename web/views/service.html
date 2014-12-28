@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .container {
+            width: 300px;
+            /*background-color: #808080;*/
+            height: 100px;
+        }
+
+        #l-side {
+            width: 100%;
+            float: left;
+            height: 100%;
+            background-color: #008000;
+        }
+
+        #r-side {
+            width: 100%;
+            background-color: #ff0000;
+            float: left;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<button id="toggle-section">Toggle</button>
+<a href="#show-cases">Trigger</a>
+<div class="container">
+    <div id="l-side">
+
+    </div>
+    <div id="r-side">
+
+    </div>
+</div>
+<script src="../../dashboard/public/jquery/dist/jquery.js"></script>
+<script src="../../dashboard/public/underscore/underscore.js"></script>
+<script src="../../dashboard/public/backbone/backbone.js"></script>
+<script>
+    (function($) {
+        $("#toggle-section").click(function() {
+//            var lColor = $("#l-side").css('background-color'),
+//                rColor = $("#r-side").css('background-color');
+//            $("#l-side").css('background-color', rColor);
+//            $("#r-side").css('background-color', lColor);
+            $("#l-side").css("visibility", "hidden");
+            $("#r-side").css("visibility", "visible");
+
+        });
+
+        var AppRouter = Backbone.Router.extend({
+            routes: {
+                "*part": "loadPart"
+            },
+
+            loadPart: function(part) {
+    //            alert('abc');
+                if(part === "show-cases") {
+                    var lColor = $("#l-side").css('background-color'),
+                        rColor = $("#r-side").css('background-color');
+                    $("#l-side").css('background-color', rColor);
+                    $("#r-side").css('background-color', lColor);
+                }
+            }
+        });
+
+    //    $("#trigger-nav").click(function() {
+    //        appRouter.navigate("/show-cases", {trigger: true});
+    //    });
+
+        var appRouter = new AppRouter();
+        Backbone.history.start();
+    })(jQuery);
+</script>
+</body>
+</html>
