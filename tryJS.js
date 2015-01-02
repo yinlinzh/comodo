@@ -171,3 +171,5 @@ var f = new Foo();
 console.log(f instanceof Foo);
 console.log(Foo.prototype.constructor === Foo)
 console.log()
+
+console.log(Foo.prototype.isPrototypeOf(f));

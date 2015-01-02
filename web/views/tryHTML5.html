@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Example</title>
     <meta name="author" content="Adam Freeman"/>
@@ -47,8 +47,10 @@ citrus industry.</p>
 I bought it at <time datetime="15:00">3 o'clock</time>
 on <time datetime="1984-12-7">December 7th</time>.</p>
 
-<form method="post" action="http://baidu.com">
-    <input type="text" name="fave" />
+<form method="post" action="http://localhost:3000/books">
+    <p><label for="fave">Fave: <input autofocus autocomplete id="fave" type="text" name="fave" placeholder="your fave" /></label></p>
+    <p><label for="name">name: <input value="avd" id="name" type="date" name="name" placeholder="your name" /></label></p>
+    <p><label for="content">content: <textarea id="content" name="content"></textarea></label></p>
     <button>Submit Vote</button>
 </form>
 

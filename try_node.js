@@ -23,4 +23,4 @@
     console.log('time out');
   }, 1000);
   setImmediate(foo);
-}());
+})();
