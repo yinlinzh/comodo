@@ -135,6 +135,17 @@
         }
     });
 
+
+    //
+
+    LibraryView = Backbone.View.extend({
+        initialize: function() {
+            console.log('View created');
+        }
+    });
+
+    //
+
     World = Backbone.Model.extend({
         url: /world/,
         name: null
