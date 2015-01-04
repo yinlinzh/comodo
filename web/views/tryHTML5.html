@@ -24,6 +24,7 @@
         }
     </style>
     <link rel="stylesheet" href="spa.css" />
+    <link rel="stylesheet" href="../../dashboard/public/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
 <div class="favorites">
@@ -55,6 +56,17 @@ on <time datetime="1984-12-7">December 7th</time>.</p>
     <button>Submit Vote</button>
 </form>
 
+<form action="http://localhost:3000/process"> <!-- method="post" enctype="text/plain"-->
+    <input type="hidden" name="hush" value="hidden, but not secret!">
+    <div>
+        <label for="fieldColor">Your favorite color: </label>
+        <input type="text" id="fieldColor" name="color">
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
 <button id="check-btn">New Comer</button>
 <ul id="world-list"></ul>
 <a href="service.html#show-cases">Test Backbone router</a>
@@ -64,11 +76,19 @@ on <time datetime="1984-12-7">December 7th</time>.</p>
 
     <!--</div>-->
 <!--</div>-->
+<div>
+    <button class="btn btn-primary fruits">banana</button>
+    <button class="btn btn-warning fruits">apple</button>
+    <button class="btn btn-danger fruits">orange</button>
+</div>
+<div id="target">Show div</div>
 
 <script src="../../dashboard/public/jquery/dist/jquery.js"></script>
 <script src="../../dashboard/public/underscore/underscore.js"></script>
 <script src="../../dashboard/public/backbone/backbone.js"></script>
 <script src="try-bb.js"></script>
+<script src="try-ajax.js"></script>
+<!--<script></script>-->
 
 </body>
 </html>
