@@ -1,0 +1,20 @@
+{
+  "name": "meadowlark",
+  "version": "1.0.0",
+  "description": "Dev with Node and Express",
+  "main": "meadowlark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.10.6",
+    "body-parser": "^1.10.0",
+    "multer": "^0.1.6"
+  },
+  "devDependencies": {
+    "mocha": "^2.1.0",
+    "chai": "^1.10.0"
+  }
+}
