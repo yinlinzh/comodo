@@ -26,6 +26,7 @@
 //})();
 
 
+
 //var util = require('util');
 //var EventEmitter = require('events').EventEmitter;
 //
@@ -54,6 +55,7 @@
 //counter.increment();
 
 
+
 //var Readable = require('stream').Readable;
 //var readable = new Readable;
 //var count = 0;
@@ -66,8 +68,19 @@
 //    }, 500); };
 //readable.pipe(process.stdout);
 
-var count = 0;
-(function curse() {
-    console.log(++count);
-    curse();
-})();
+
+
+//var count = 0;
+//(function curse() {
+//    console.log(++count);
+//    curse();
+//})();
+
+
+
+//setInterval(function() {}, 1e6);
+//process.on('SIGINT', function() {
+//    console.log('SIGINT signal received');
+////    console.log('fuck you, i will never stop');
+//    process.exit(1);
+//});
