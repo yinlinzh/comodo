@@ -15,16 +15,28 @@
 
 //while(1) {}
 
-var EventEmitter = require('events').EventEmitter;
+//var EventEmitter = require('events').EventEmitter;
+//
+//function getEmitter() {
+//    var emitter = new EventEmitter();
+//    process.nextTick(function() {
+//        emitter.emit('Start');
+//    });
+//    return emitter;
+//}
+//
+//var myEmitter = getEmitter();
+//
+//myEmitter.on('Start', function() {
+//    console.log('Started');
+//});
 
-function getEmitter() {
-    var emitter = new EventEmitter();
-    emitter.emit('Start');
-    return emitter;
-}
+setTimeout(function() {
+    console.log('Now stop');
+}, 100);
 
-var myEmitter = getEmitter();
+var intervalId = setInterval(function() {
+    console.log('Run me every 1 millisecond');
+}, 1);
 
-myEmitter.on('Start', function() {
-    console.log('Started');
-});
+intervalId.unref();
