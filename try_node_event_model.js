@@ -32,7 +32,8 @@
 //});
 
 setTimeout(function() {
-    console.log('Now stop');
+//    console.log('Now stop');
+    while(1) {console.log('abc')}
 }, 100);
 
 var intervalId = setInterval(function() {
