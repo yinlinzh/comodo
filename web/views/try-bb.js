@@ -2,8 +2,11 @@
  * Created by Yinlin on 12/21/14.
  */
 
+
+"use strict";
+
 (function($) {
-    Book = Backbone.Model.extend({
+    var Book = Backbone.Model.extend({
         urlRoot: 'http://localhost:3000/books/',
         initialize: function() {
             var self = this;
@@ -35,7 +38,7 @@
         }
     });
 
-    Library = Backbone.Collection.extend({
+    var Library = Backbone.Collection.extend({
         model: Book,
         url: 'http://localhost:3000/books/',
         initialize: function() {
@@ -138,7 +141,7 @@
 
     //
 
-    LibraryView = Backbone.View.extend({
+    var LibraryView = Backbone.View.extend({
         initialize: function() {
             console.log('View created');
         }
@@ -146,18 +149,18 @@
 
     //
 
-    World = Backbone.Model.extend({
+    var World = Backbone.Model.extend({
         url: /world/,
         name: null
     });
 
-    Worlds = Backbone.Collection.extend({
+    var Worlds = Backbone.Collection.extend({
         initialize: function(models, options) {
             this.bind("add", options.view.addOneWorld);
         }
     });
 
-    AppView = Backbone.View.extend({
+    var AppView = Backbone.View.extend({
         el: $("body"),
         initialize: function() {
             this.worlds = new Worlds(null, {view: this});

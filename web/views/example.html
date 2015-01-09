@@ -4,14 +4,21 @@
     <title>Example</title>
     <meta name="author" content="Rafael" />
     <meta name="desciption" content="A simple description" />
+    <link rel="stylesheet" href="../../dashboard/public/bootstrap/dist/css/bootstrap.css" />
 </head>
 
 <body>
     <form name="fruitvote" method="post" action="http://localhost:3000/headers"> <!--target="_blank" -->
         <p><label for="faveid">Fruit: <input autofocus id="faveid" name="fave" autocomplete="off" /></label></p>
         <p><label for="nameid">Name: <input disabled id="nameid" name="name" /></label></p>
-        <button>Submit Vote</button>
-        <button type="reset">Reset</button>
+        <button class="btn btn-primary">Submit Vote</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
     </form>
+<style>
+    label {
+        border: thin black solid;
+        padding: 4px;
+    }
+</style>
 </body>
 </html>
