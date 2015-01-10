@@ -1,3 +1,4 @@
+"use strict";
 
 //
 // function foo () {
@@ -84,3 +85,32 @@
 ////    console.log('fuck you, i will never stop');
 //    process.exit(1);
 //});
+
+for(var i = 0; i < 4; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 0);
+}
+
+for(var i = 0; i < 4; i++) {
+    (function(item) {
+        setTimeout(function() {
+            console.log(item);
+        }, 0);
+    })(i);
+//    setTimeout(function() {
+//        console.log(i);
+//    }, 0);
+}
+
+console.log('--------');
+
+[0, 1, 2, 3]
+    .forEach(function(item) {
+        setTimeout(function() {
+            console.log(item);
+        }, 0);
+    });
+
+var EventEmitter = require('events').EventEmitter;
+console.info(Object.getPrototypeOf(new EventEmitter()));
