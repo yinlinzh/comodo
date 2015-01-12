@@ -56,13 +56,15 @@ messenger.on("message", function(msg) {
 
 console.log(++pos + " FIRST");
 
-process.nextTick(function() {
-    console.log(++pos + " NEXT")
-});
+
 
 setTimeout(function() {
     console.log(++pos + " QUICK TIMER")
 }, 0);
+
+process.nextTick(function() {
+    console.log(++pos + " NEXT")
+});
 
 setTimeout(function() {
     console.log(++pos + " LONG TIMER")

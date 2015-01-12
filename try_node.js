@@ -86,31 +86,88 @@
 //    process.exit(1);
 //});
 
-for(var i = 0; i < 4; i++) {
-    setTimeout(function() {
-        console.log(i);
-    }, 0);
-}
-
-for(var i = 0; i < 4; i++) {
-    (function(item) {
-        setTimeout(function() {
-            console.log(item);
-        }, 0);
-    })(i);
+//for(var i = 0; i < 4; i++) {
 //    setTimeout(function() {
 //        console.log(i);
 //    }, 0);
-}
+//}
+//
+//for(var i = 0; i < 4; i++) {
+//    (function(item) {
+//        setTimeout(function() {
+//            console.log(item);
+//        }, 0);
+//    })(i);
+////    setTimeout(function() {
+////        console.log(i);
+////    }, 0);
+//}
+//
+//console.log('--------');
+//
+//[0, 1, 2, 3]
+//    .forEach(function(item) {
+//        setTimeout(function() {
+//            console.log(item);
+//        }, 0);
+//    });
+//
+//var EventEmitter = require('events').EventEmitter;
+//console.info(Object.getPrototypeOf(new EventEmitter()));
 
-console.log('--------');
+//var start = new Date();
+//setTimeout(function() {
+//    var now = new Date();
+//    console.log('Elapsed %d ms' , now - start);
+//}, 500);
+//while(new Date() - start < 2000) {}
 
-[0, 1, 2, 3]
-    .forEach(function(item) {
-        setTimeout(function() {
-            console.log(item);
-        }, 0);
-    });
+//var fireCount = 0;
+//var start = new Date();
+//var timer = setInterval(function() {
+//    if(new Date() - start > 1000) {
+//        clearInterval(timer);
+//        console.log(fireCount);
+//        return;
+//    }
+//    fireCount++;
+//}, 0);
+
+//var functionHasReturned = false;
+//process.nextTick(function() {
+//    console.assert(functionHasReturned);
+//});
+//
+//functionHasReturned = true;
+
+//setTimeout(function A() {
+//    setTimeout(function B() {
+//        setTimeout(function C() {
+//            throw new Error("Something terrible has happened!");
+//        }, 0);
+//    }, 0);
+//}, 0);
+
+//try {
+//    setTimeout(function() {
+//        throw new Error("Catch me if you can!");
+//    }, 0);
+//} catch(e) {
+//    console.error('---------', e);
+//}
+//
+//['room', 'moon', 'cow jumping over the moon']
+//    .forEach(function(item) {
+//        process.on('exit', function() {
+//            console.log('Goodnight', item);
+//        });
+//    });
 
 var EventEmitter = require('events').EventEmitter;
-console.info(Object.getPrototypeOf(new EventEmitter()));
+var myEE = new EventEmitter();
+
+myEE.on('evacuate', function(msg) {
+    console.log('Come on! ', msg, ' issued!!');
+});
+
+myEE.emit('evacuate', 'Women and children first!!');
