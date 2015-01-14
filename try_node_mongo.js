@@ -26,6 +26,7 @@ function initMongo(next) {
         if (err) {
             throw new Error(err);
         } else {
+            self.db = db;
             async.waterfall([
                 // initSchedules
                 function (next) {
