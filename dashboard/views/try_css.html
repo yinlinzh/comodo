@@ -11,13 +11,28 @@
             width: 1000px;
             box-sizing: border-box;
             /*overflow: hidden;*/
+            overflow: auto;
             margin: auto auto;
         }
 
         div.innerDiv {
-            display: inline;
-            /*width: 33%;*/
+            display: inline-block;
+            width: 33%;
         }
+
+        tr {
+            /*visibility: collapse;*/
+            border: 1px solid red;
+        }
+        
+        p {
+            width: 500px;
+        }
+        
+        #fruittext {
+            float: left;
+        }
+        
     </style>
 </head>
 <body>
@@ -26,5 +41,52 @@
         <div class="innerDiv"></div>
         <div class="innerDiv"></div>
     </div>
+    
+    <p id="fruittext">
+        There are lots of different kinds of fruit - there are over 500
+        varieties of <span id="banana">banana</span> alone. By the time we add the
+        countless types of apples, oranges, and other well-known fruit, we are faced
+        with thousands of choices.
+    </p>
+    <p id="apples">
+        One of the most interesting aspects of fruit is the variety available in each country.
+        I live near London, in an area which is
+        known for its apples.
+    </p>
+    <script>
+        document.writeln("<pre>URL: " + document.URL);
+        var elems = document.getElementsByTagName("p");
+        for (var i = 0; i < elems.length; i++) {
+            document.writeln("Element ID: " + elems[i].id);
+            elems[i].style.border = "medium double black";
+            elems[i].style.padding = "4px";
+        }
+        document.write("</pre>");
+    </script>
+
+    <table>
+        <tr id="targetTr">
+            <td>Adam</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>Bob</td>
+            <td>2</td>
+        </tr>
+    </table>
+    <button class="trCtrl">hidden</button>
+    <button class="trCtrl">visible</button>
+    <button class="trCtrl">Collapse</button>
+    <div style="position: fixed; bottom: 10px; right: 20px;">
+        abc
+    </div>
+    <script>
+        var btns = document.getElementsByClassName('trCtrl');
+        for(var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function(e) {
+                document.getElementById('targetTr').style.visibility = e.target.innerHTML;
+            }
+        }
+    </script>
 </body>
 </html>
